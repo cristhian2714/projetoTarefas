@@ -2,13 +2,11 @@
 namespace Projeto\view;
 require_once "../model/Tarefa.php";
 use Projeto\model\Tarefa;
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Tarefas</title>
 </head>
 <body>
@@ -30,25 +28,21 @@ use Projeto\model\Tarefa;
         <br>
         <input type="date" name="prazo">
         <br><br>
-        <button type="submit"><a href="listarTarefas.php">Cadastrar
-        <?php
-            session_start();
-            $titulo = $_POST['titulo'];
-            $prioridade = $_POST['prioridade'];
-            $prazo = $_POST['prazo'];
-
-            $tarefas = new Tarefa($titulo, $prioridade, $prazo);
-            $_SESSION['titulo'] = $titulo;
-            $_SESSION['prioridade'] = $prioridade;
-            $_SESSION['prazo'] = $prazo;
-
-            echo "<h3>Tarefa cadastrada com sucesso!</h3>";
-        ?>
-
-
-        </button>
+        <button type="submit">Cadastrar</button>
     </form>
 <br>
 <a href="index.php">Voltar</a>
+<?php
+session_start();
+if(isset($_POST['titulo'])){
+   $titulo = $_POST['titulo'];
+   $prioridade = $_POST['prioridade'];
+   $prazo = $_POST['prazo'];
+   $tarefa = new Tarefa($titulo, $prioridade, $prazo);
+   $_SESSION['tarefas'][] = $tarefa;
+   echo "<h3>Tarefa cadastrada com sucesso!</h3>";
+
+}
+?>
 </body>
-</html>
+
