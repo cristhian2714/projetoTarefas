@@ -1,0 +1,54 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#ffffff,#0287a8);
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:400px;
+    margin:80px auto;
+    background:rgba(148, 148, 148, 0.353);
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgb(0, 0, 0);
+}
+
+h1{
+    text-align:center;
+}
+
+input, select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ffffff;
+    border-radius:5px;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#000000;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#bdd4ff;
+}
+
+a{
+    text-decoration:none;
+    color:#ffffff;
+}
+
+.tarefa{
+    background:#000000;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:5px;
+}

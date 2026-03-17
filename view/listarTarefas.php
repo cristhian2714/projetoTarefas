@@ -8,6 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Listar Tarefas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Lista de Tarefas</h1>

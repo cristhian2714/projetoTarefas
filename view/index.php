@@ -6,6 +6,7 @@ namespace Projeto\view;
 <head>
     <meta charset="UTF-8">
     <title>Página Inicial</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Gerenciador de Tarefas</h1>

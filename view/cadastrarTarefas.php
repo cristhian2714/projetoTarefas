@@ -8,6 +8,7 @@ use Projeto\model\Tarefa;
 <head>
     <meta charset="UTF-8">
     <title>Cadastrar Tarefas</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <h1>Cadastrar Tarefa</h1>

@@ -1,55 +1,46 @@
-<?php 
-    namespace Projeto\view;
-    require_once("../model/Pessoa.php");
-    use Projeto\model\Pessoa;
+<?php
+session_start();
+$resultado = "";
+
+if(isset($_POST['email'])){
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    if(isset($_SESSION['usuarios'][$email])){
+        if($_SESSION['usuarios'][$email] == $senha){
+            $_SESSION['usuario'] = $email;
+            header("Location: index.php");
+            exit;
+        }else{
+            $resultado = "Senha incorreta";
+        }
+        
+        }else{
+            $resultado = "Usuário não encontrado";
+        }
+}
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrar</title>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h1>Digite seu Usuário:</h1>
-    <br><br>
+    <div class="container">
+    <h1>Login</h1>
     <form method="POST">
-        <label>Usuário: </label>
-        <input type="text" name="email" id="email"/>
+        <label>Digite seu login: </label>
+        <input type="text" name="email">
         <br><br>
-        <label>Senha: </label>
-        <input type="number" name="senha" id="senha"/>
+        <label>Digite sua senha: </label>
+        <input type="number" name="senha">
         <br><br>
-
-        <button type="submit">Login
-            <?php
-    
-                    $email   = $_POST['email'];
-                    $senha     = $_POST['senha'];
-                    $resultado = validarSenha($email, $senha);
-                   
-                    if($resultado == true){
-                        header('location: ');
-                    }else{
-                        echo "Erro!!! Digite novamente!";
-                    }
-
-                    
-        
-
-            ?>
-        </button><br>
-        <?php 
-            echo $resultado;
-
-             
-        ?>
-        <br>
-        <button><a href="index.php">Login</a></button>
-
+        <button type="submit">Entrar</button>
     </form>
-   
-        
-    
-</body>
-</html>
+<br>
+<button><a href="cadastrarPessoa.php">Cadastrar novo usuário</a></button>
+<br><br>
+<?php echo $resultado; ?>
